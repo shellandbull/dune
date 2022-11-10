@@ -1,0 +1,58 @@
+version: 2.1
+executors:
+  ruby:
+    parameters:
+      version:
+        description: "Ruby version number"
+        default: "3.1.2"
+        type: string
+    docker:
+      - image: cimg/ruby:<< parameters.version >>
+
+commands:
+  bundle_install:
+    description: Install Ruby dependencies with Bundler
+    parameters:
+      version:
+        description: "Ruby version number"
+        default: "3.1.2"
+        type: string
+    steps:
+      - restore_cache:
+          keys:
+            - bundle-v1-{{ arch }}-<< parameters.version >>
+      - run:
+          name: Install Ruby Dependencies
+          command: |
+            gem install bundler -v 2.3.14 --conservative --no-document
+            bundle config --local path vendor/bundle
+            bundle check || (bundle install --jobs=4 --retry=3 && bundle clean)
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: bundle-v1-{{ arch }}-<< parameters.version >>-{{ checksum "Gemfile.lock" }}
+
+jobs:
+  test:
+    parameters:
+      version:
+        description: "Tests"
+        default: "3.1.2"
+        type: string
+    executor:
+      name: ruby
+      version: << parameters.version >>
+    steps:
+      - checkout
+      - bundle_install:
+          version: << parameters.version >>
+      - run: bundle exec rspec"
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - test:
+          matrix:
+            parameters:
+              version: ["2.6", "2.7", "3.1.2"]
