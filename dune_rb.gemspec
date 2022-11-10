@@ -2,7 +2,7 @@ require_relative "lib/dune/version"
 
 Gem::Specification.new do |spec|
   spec.name    = "dune"
-  spec.version = Example::VERSION
+  spec.version = Dune::VERSION
   spec.authors = ["shellandbull"]
   spec.email   = ["sudo@morph.tech"]
 
