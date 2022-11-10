@@ -46,7 +46,7 @@ jobs:
       - checkout
       - bundle_install:
           version: << parameters.version >>
-      - run: bundle exec rspec"
+      - run: "bundle exec rspec"
 
 workflows:
   version: 2
