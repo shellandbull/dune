@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dune.com/api/v1/execution/01GHGBV67167FF47J3MF010A90/status
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Dune-Api-Key:
+      - 9l7rIhBvhVHShFbMVAriMEeiaNOAtK61
+      User-Agent:
+      - Faraday v2.6.0
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 10 Nov 2022 12:05:07 GMT
+      Content-Length:
+      - '23'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type, Content-Length, Accept-Encoding, Accept, Origin, X-Dune-API-KEY
+      Access-Control-Allow-Methods:
+      - OPTIONS, GET, POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 10 Nov 2022 12:05:07 GMT
+- request:
+    method: get
+    uri: https://api.dune.com/api/v1/execution/01GHGBV67167FF47J3MF010A90/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Dune-Api-Key:
+      - 9l7rIhBvhVHShFbMVAriMEeiaNOAtK61
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Nov 2022 12:08:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '213'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type, Content-Length, Accept-Encoding, Accept, Origin, X-Dune-API-KEY
+      Access-Control-Allow-Methods:
+      - OPTIONS, GET, POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"execution_id":"01GHGBV67167FF47J3MF010A90","query_id":312527,"state":"QUERY_STATE_FAILED","submitted_at":"2022-11-10T08:52:29.026525Z","expires_at":"2024-11-09T09:22:37.266988Z","execution_started_at":"2022-11-10T08:52:37.249545981Z","execution_ended_at":"2022-11-10T09:22:37.266987958Z"}'
+  recorded_at: Thu, 10 Nov 2022 12:08:12 GMT
+recorded_with: VCR 6.1.0
