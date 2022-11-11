@@ -9,18 +9,22 @@ class Dune
     end
 
     def query(id, body = nil, headers = nil, &block)
+      logger.debug("#{self} #{__method__} with #{id}")
       parse(connection.post("query/#{id}/execute", body, headers, &block))
     end
 
     def execution_status(id, params = nil, headers = nil, &block)
+      logger.debug("#{self} #{__method__} with #{id}")
       parse(connection.get("execution/#{id}/status", params, headers, &block))
     end
 
     def execution(id, params = nil, headers = nil, &block)
+      logger.debug("#{self} #{__method__} with #{id}")
       parse(connection.get("execution/#{id}/results", params, headers, &block))
     end
 
     def cancel(id, params = nil, headers = nil, &block)
+      logger.debug("#{self} #{__method__} with #{id}")
       parse(connection.post("execution/#{id}/cancel", params, headers, &block))
     end
 
@@ -32,6 +36,7 @@ class Dune
       else
         error          = Dune::Error.new("Dune API replied with status #{response.status}")
         error.response = response
+        logger.error(error)
         raise error
       end
     end
