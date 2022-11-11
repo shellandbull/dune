@@ -1,6 +1,6 @@
 class Dune
   class Client
-    attr_accessor :api_key, :connection
+    attr_accessor :api_key, :connection, :logger
 
     def initialize(api_key:, faraday_settings: {}, logger: Logger.new(IO::NULL))
       @api_key    = api_key
