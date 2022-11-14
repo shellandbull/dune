@@ -28,7 +28,7 @@ Here's the properties that can be provided to the constructor
 |--------------------|----------|--------------------------------------------------|
 | `api_key`          | true     | the API key                                      |
 | `faraday_settings` | false    | a hash provided to `Faraday.new`                 |
-| logger             | false    | an instance of Logger, defaults to a null logger |
+| `logger`           | false    | an instance of Logger, defaults to a null logger |
 
 ```ruby
 require "dune"
